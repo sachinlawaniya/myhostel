@@ -1,0 +1,150 @@
+*
+{
+margin: 0px;
+padding: 0px;
+}
+.d1{
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    color: black;
+    text-align: center;
+    display:flex;
+}
+.whether{
+    width: 50%;
+    height: 60px;
+    background-color:white;
+    text-justify:centre;
+}
+.whether li{
+    list-style: none;
+    display: flex;
+    padding-left: 50px;
+}
+.whether li p:hover{
+  font-size: 22px;
+  overflow:visible;
+}
+.whether li img{
+    width: 60px;
+    height: 60px;
+    margin-left: 100px;
+   
+}
+
+.hyperlink{
+    width: 50%;
+    height: fit-content;
+}
+.hyperlink li{
+    padding: 0px;
+    list-style: none;
+}
+.hyperlink li a{
+    margin-left: 20px;
+
+}
+.hyperlink li a img{
+    width: 40px;
+    height:40px;
+
+border-radius: 50%;
+}
+.hyperlink li a img:hover{
+    width: 40px;
+    height:40px;
+    background-color:  rgb(235, 125, 47);
+    border-radius: 50%;
+}
+.d2{
+    width: 100%;
+    height: fit-content;
+    background-color: darkgrey;
+}
+.d2 .login{
+    width: fit-content;
+   
+    list-style: none;
+    padding-left:40%;
+    
+   
+}
+.d2 ul{
+    text-transform: uppercase;
+}
+.login li{
+   list-style: none;
+}
+ .login a{
+    text-decoration: none;
+}
+.navcolor{
+    background-color:  rgb(235, 125, 47);
+    filter: brightness(1.3);
+}
+.imgtext{
+    width: 90%;
+    height: fit-content;
+   
+    margin-bottom: 100px;
+    margin-left: 70px;
+}
+.imgheading{
+    width: 90%;
+    height: fit-content;
+   margin-bottom: 200px;
+   background-color:  rgb(235, 125, 47);
+   
+
+   
+}
+.btnbgcoor{
+    background-color: aqua;
+    font-size: 20px;
+}
+.d7{
+    width: 100%;
+    height: fit-content;
+    background-color: beige;
+    text-align: left;
+    padding-left: 20px;
+    display: flex;
+}
+.d71{
+    width: 45%;
+    height: fit-content;
+    font-size: larger;
+    text-align: center;
+    align-items: center;
+    text-justify: auto;
+    line-height: 30px;
+}
+.d7 form input{
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    border: 2px solid rgb(124, 113, 113);
+    background-color: bisque;
+}
+.d7 form button{
+    width:100px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid rgb(124, 113, 113);
+text-align: center;
+background-color: rgb(246, 54, 21);
+color: white;
+
+font-size: 22px;
+align-items: center;
+}
+.d8{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(253, 9, 9);
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+}

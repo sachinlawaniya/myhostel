@@ -1,0 +1,210 @@
+dart
+import 'package:flutter/material.dart';
+
+void main() {
+runApp(JaatHostelApp());
+}
+
+class JaatHostelApp extends StatelessWidget {
+@override
+Widget build(BuildContext context) {
+return MaterialApp(
+title: 'Jaat Hostel Jaipur',
+theme: ThemeData(
+primarySwatch: Colors.blue,
+),
+home: LoginPage(),
+);
+}
+}
+
+class LoginPage extends StatefulWidget {
+@override
+_LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+    TextEditingController _usernameController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
+
+    bool _isWarden = false;
+
+    String _validateUser(String value) {
+    if (value.isEmpty) {
+    return 'Please enter your username';
+    }
+    return null;
+    }
+
+    String _validatePassword(String value) {
+    if (value.isEmpty) {
+    return 'Please enter your password';
+    }
+    return null;
+    }
+
+    void _login(BuildContext context) {
+    String username = _usernameController.text;
+    String password = _passwordController.text;
+
+    // Perform login validation logic
+    // Here, you can check if the user is a student or a warden
+
+    if (_isWarden) {
+    // Warden login
+    if (username == 'warden' && password == 'password') {
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => WardenHomePage()),
+    );
+    } else {
+    showDialog(
+    context: context,
+    builder: (BuildContext context) {
+    return AlertDialog(
+    title: Text('Login Failed'),
+    content: Text('Incorrect username or password'),
+    actions: <Widget>[
+        FlatButton(
+        child: Text('OK'),
+        onPressed: () {
+        Navigator.of(context).pop();
+        },
+        ),
+        ],
+        );
+        },
+        );
+        }
+        } else {
+        // Student login
+        // Perform student login logic
+        // You can implement your own validation and authentication logic here
+        // For simplicity, we're considering only one student
+        if (username == 'student' && password == 'password') {
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => StudentHomePage()),
+        );
+        } else {
+        showDialog(
+        context: context,
+        builder: (BuildContext context) {
+        return AlertDialog(
+        title: Text('Login Failed'),
+        content: Text('Incorrect username or password'),
+        actions: <Widget>[
+            FlatButton(
+            child: Text('OK'),
+            onPressed: () {
+            Navigator.of(context).pop();
+            },
+            ),
+            ],
+            );
+            },
+            );
+            }
+            }
+            }
+
+            @override
+            Widget build(BuildContext context) {
+            return Scaffold(
+            appBar: AppBar(
+            title: Text('Jaat Hostel Jaipur'),
+            ),
+            body: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+                Text(
+                'Login',
+                style: TextStyle(fontSize: 24),
+                ),
+                SizedBox(height: 16),
+                TextFormField(
+                controller: _usernameController,
+                decoration: InputDecoration(
+                labelText: 'Username',
+                ),
+                validator: _validateUser,
+                ),
+                SizedBox(height: 16),
+                TextFormField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                labelText: 'Password',
+                ),
+                obscureText: true,
+                validator: _validatePassword,
+                ),
+                SizedBox(height: 16),
+                Row(
+                children: <Widget>[
+                    Text('Warden:'),
+                    Switch(
+                    value: _isWarden,
+                    onChanged: (value) {
+                    setState(() {
+                    _isWarden = value;
+                    });
+                    },
+                    ),
+                    ],
+                    ),
+                    SizedBox(height: 16),
+                    RaisedButton(
+                    onPressed: () => _login(context),
+                    child: Text('Login'),
+                    ),
+                    ],
+                    ),
+                    ),
+                    );
+                    }
+                    }
+
+                    class WardenHomePage extends StatelessWidget {
+                    @override
+                    Widget build(BuildContext context) {
+                    return Scaffold(
+                    appBar: AppBar(
+                    title: Text('Warden Home'),
+                    ),
+                    body: Center(
+                    child: Text('Welcome, Warden!'),
+                    ),
+                    );
+                    }
+                    }
+
+                    class StudentHomePage extends StatelessWidget {
+                    @override
+                    Widget build(BuildContext context) {
+                    return Scaffold(
+                    appBar: AppBar(
+                    title: Text('Student Home'),
+                    ),
+                    body: Center(
+                    child: Text('Welcome, Student!'),
+                    ),
+                    );
+                    }
+                    }
+
+
+                    In this example, you have a `LoginPage` where users can enter their username and password. The
+                    `_isWarden` boolean variable is used to differentiate between student and warden login. There are
+                    separate `WardenHomePage` and `StudentHomePage` screens to display the home page for the respective
+                    user types.
+
+                    The login functionality is implemented inside the `_login` function, where it checks the entered
+                    username and password against hardcoded values for simplicity. You can replace this with your own
+                    validation and authentication logic.
+
+                    When the login is successful, the app navigates to the appropriate home page based on the user type.
+
+                    Please note that this is a basic example and may need further enhancements and validations based on
+                    your specific requirements.
